@@ -1,4 +1,4 @@
-package org.example.lesson3;
+package org.example;
 
 
 import io.github.bonigarcia.wdm.WebDriverManager;

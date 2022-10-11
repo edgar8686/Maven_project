@@ -1,4 +1,4 @@
-package org.example.lesson3;
+package org.example;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -10,7 +10,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class CheckSearchTest {
+public class AddProductTest {
     public static void main(String[] args) {
         WebDriverManager.firefoxdriver().setup();
         FirefoxOptions options = new FirefoxOptions();
@@ -21,20 +21,19 @@ public class CheckSearchTest {
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         driver.get("http://automationpractice.com/index.php");
 
-        WebElement searchElement1 = driver.findElement(By.id("search_query_top"));
-        List<WebElement> webElements = driver.findElements(By.id("search_query_top"));
+        WebElement addToCartElement = driver.findElement(By.cssSelector("#homefeatured > .ajax_block_product:nth-child(1) .button:nth-child(1) > span"));
+        List<WebElement> webElements = driver.findElements(By.cssSelector("#homefeatured > .ajax_block_product:nth-child(1) .button:nth-child(1) > span"));
         if (webElements.size() > 1) {
             System.out.println(webElements.size());
         }
-        searchElement1.click();
-        searchElement1.sendKeys("blouse");
+        addToCartElement.click();
 
-        WebElement searchElement2 = driver.findElement(By.name("submit_search"));
-        webElements = driver.findElements(By.name("submit_search"));
+        WebElement proceedToCheckoutElement = driver.findElement(By.cssSelector(".button-medium > span"));
+        webElements = driver.findElements(By.cssSelector(".button-medium > span"));
         if (webElements.size() > 1) {
             System.out.println(webElements.size());
         }
-        searchElement2.click();
+        proceedToCheckoutElement.click();
         driver.quit();
     }
 }

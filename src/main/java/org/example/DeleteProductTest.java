@@ -1,4 +1,4 @@
-package org.example.lesson3;
+package org.example;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -10,7 +10,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class AddProductTest {
+public class DeleteProductTest {
     public static void main(String[] args) {
         WebDriverManager.firefoxdriver().setup();
         FirefoxOptions options = new FirefoxOptions();
@@ -21,19 +21,26 @@ public class AddProductTest {
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         driver.get("http://automationpractice.com/index.php");
 
-        WebElement addToCartElement = driver.findElement(By.cssSelector("#homefeatured > .ajax_block_product:nth-child(1) .button:nth-child(1) > span"));
-        List<WebElement> webElements = driver.findElements(By.cssSelector("#homefeatured > .ajax_block_product:nth-child(1) .button:nth-child(1) > span"));
+        WebElement addToCartElement = driver.findElement(By.cssSelector("#homefeatured > .ajax_block_product:nth-child(3) .button:nth-child(1) > span"));
+        List<WebElement> webElements = driver.findElements(By.cssSelector("#homefeatured > .ajax_block_product:nth-child(3) .button:nth-child(1) > span"));
         if (webElements.size() > 1) {
             System.out.println(webElements.size());
         }
         addToCartElement.click();
 
-        WebElement proceedToCheckoutElement = driver.findElement(By.cssSelector(".button-medium > span"));
-        webElements = driver.findElements(By.cssSelector(".button-medium > span"));
+        WebElement proceedToCheckoutElement = driver.findElement(By.cssSelector(".button-medium > span:nth-child(1)"));
+        webElements = driver.findElements(By.cssSelector(".button-medium > span:nth-child(1)"));
         if (webElements.size() > 1) {
             System.out.println(webElements.size());
         }
         proceedToCheckoutElement.click();
+
+        WebElement basketElement = driver.findElement(By.cssSelector(".icon-trash"));
+        webElements = driver.findElements(By.cssSelector(".icon-trash"));
+        if (webElements.size() > 1) {
+            System.out.println(webElements.size());
+        }
+        basketElement.click();
         driver.quit();
     }
 }
