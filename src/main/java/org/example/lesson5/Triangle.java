@@ -9,8 +9,7 @@ public class Triangle {
         } else if (a + b <= c || a + c <= b || b + c <= a) {
             throw new IOException("это не треугольник");
         }
-        double s;
-        s = (a + b + c) / 2;
+        double s = (a + b + c) / 2;
         double area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
         return area;
 

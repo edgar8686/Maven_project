@@ -13,8 +13,8 @@ class TriangleNegativeTest {
     Triangle triangle = new Triangle();
 
     @ParameterizedTest
-    @CsvSource({"0, 7, 7", "-9, 9, 9", "2, 1, 60"})
-    void calculateArea(int a, int b, int c) {
+    @CsvSource({"0, 7, 7", "-9, 10, 9", "2, 1, 60"})
+    void calculateAreaNegative(int a, int b, int c) {
         Assertions.assertThrows(IOException.class, () -> {
             triangle.calculateArea(a, b, c);
         });
