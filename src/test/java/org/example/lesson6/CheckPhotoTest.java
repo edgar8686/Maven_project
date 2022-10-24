@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 
 public class CheckPhotoTest extends AbstractTest {
     static Logger logger = LoggerFactory.getLogger(CheckPhotoTest.class);
-
     @Test
     void checkPhoto() throws InterruptedException {
         Locators locators = new Locators(getDriver());

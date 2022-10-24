@@ -8,9 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class CheckInfoTest extends AbstractTest {
-
     static Logger logger = LoggerFactory.getLogger(CheckInfoTest.class);
-
     @Test
     void CheckInfoTest() throws InterruptedException {
         Locators locators = new Locators(getDriver());
@@ -20,8 +18,7 @@ public class CheckInfoTest extends AbstractTest {
         System.out.println("Размер окна " + windowWidth);
         jsExecutor.executeScript("window.scrollBy(0,3000.2000122070312)");
 
-        locators
-                .cliclInfo();
+        locators.cliclInfo();
 
         Thread.sleep(2000l);
 

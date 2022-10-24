@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 
 public class AddProductTest extends AbstractTest {
     static Logger logger = LoggerFactory.getLogger(AddProductTest.class);
-
     @Test
     void addProduct() throws InterruptedException {
         Locators locators = new Locators(getDriver());
@@ -20,13 +19,11 @@ public class AddProductTest extends AbstractTest {
         jsExecutor.executeScript("window.scrollBy(0,839.2000122070312)");
         Thread.sleep(1000);
 
-        locators
-                .clickHoverCursor();
+        locators.clickHoverCursor();
 
         Thread.sleep(1000);
 
-        locators
-                .clickBasket();
+        locators.clickBasket();
 
         Assertions.assertTrue(getDriver().getCurrentUrl().endsWith("/detail.aspx?targetUrl=MI"));
         logger.info("Тест пройден");

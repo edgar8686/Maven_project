@@ -28,14 +28,10 @@ public abstract class AbstractTest {
         Assertions.assertDoesNotThrow( ()-> driver.navigate().to("https://www.wildberries.ru"),
                 "Страница не доступна");
     }
-
-
-
     @AfterAll
     static void close(){
         driver.quit();
     }
-
     public static WebDriver getDriver() {
         return driver;
     }

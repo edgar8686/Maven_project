@@ -8,18 +8,15 @@ import org.slf4j.LoggerFactory;
 
 public class CheckCatalogTest extends AbstractTest {
     static Logger logger = LoggerFactory.getLogger(CheckCatalogTest.class);
-
     @Test
     void checkCatalog() throws InterruptedException {
         Locators locators = new Locators(getDriver());
 
-        locators
-                .clickElementBurger();
+        locators.clickElementBurger();
 
         Thread.sleep(2000l);
 
-        locators
-                .clickMenuBurger();
+        locators.clickMenuBurger();
 
         Assertions.assertEquals(getDriver().getTitle(), "Wildberries - модный интернет магазин");
         logger.info("Тест пройден");

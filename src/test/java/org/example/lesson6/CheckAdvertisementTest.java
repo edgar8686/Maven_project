@@ -8,13 +8,11 @@ import org.slf4j.LoggerFactory;
 
 public class CheckAdvertisementTest extends AbstractTest {
     static Logger logger = LoggerFactory.getLogger(CheckAdvertisementTest.class);
-
     @Test
     void checkAdvertisement() throws InterruptedException {
         Locators locators = new Locators(getDriver());
 
-        locators
-                .clickBanner();
+        locators.clickBanner();
 
         Thread.sleep(1000l);
 
