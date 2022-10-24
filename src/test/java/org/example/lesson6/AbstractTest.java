@@ -21,7 +21,7 @@ public abstract class AbstractTest {
         //options.addArguments("--headless");
         options.addArguments("start-maximized");
         driver = new FirefoxDriver(options);
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
     @BeforeEach
     void goTo(){

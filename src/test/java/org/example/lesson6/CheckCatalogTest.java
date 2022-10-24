@@ -1,33 +1,27 @@
 package org.example.lesson6;
 
+import org.example.lesson7.Locators;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.time.Duration;
 
 public class CheckCatalogTest extends AbstractTest {
     static Logger logger = LoggerFactory.getLogger(CheckCatalogTest.class);
 
     @Test
     void checkCatalog() throws InterruptedException {
-        new WebDriverWait(getDriver(), Duration.ofSeconds(10)).until(ExpectedConditions.urlContains("https://www.wildberries.ru"));
+        Locators locators = new Locators(getDriver());
 
-        Actions search = new Actions(getDriver());
+        locators
+                .clickElementBurger();
 
-        search.click(getDriver().findElement(By.cssSelector(".nav-element__burger")))
-                .pause(1000l)
-                .click(getDriver().findElement(By.cssSelector(".menu-burger__main-list-link--629")))
-                .build()
-                .perform();
-        Thread.sleep(1000l);
+        Thread.sleep(2000l);
 
-        Assertions.assertEquals(getDriver().getTitle(), "Купить обувь в интернет магазине WildBerries.ru");
+        locators
+                .clickMenuBurger();
+
+        Assertions.assertEquals(getDriver().getTitle(), "Wildberries - модный интернет магазин");
         logger.info("Тест пройден");
     }
 }
