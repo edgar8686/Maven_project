@@ -1,5 +1,6 @@
 package org.example.lesson7;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -62,5 +63,11 @@ public class Locators extends AbstractPage {
         new WebDriverWait(getDriver(), 5).until(ExpectedConditions.elementToBeClickable(search));
         search.click();
         search.sendKeys(value, Keys.RETURN);
+    }
+    public void toScroll(String scroll) {
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) getDriver();
+        long windowWidth = (long) jsExecutor.executeScript("return window.innerWidth");
+        System.out.println("Размер окна " + windowWidth);
+        jsExecutor.executeScript("window.scrollBy(" + scroll + ")");
     }
 }
