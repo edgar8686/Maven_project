@@ -62,5 +62,5 @@ public class Locators extends AbstractPage {
         new WebDriverWait(getDriver(), 5).until(ExpectedConditions.elementToBeClickable(search));
         search.click();
         search.sendKeys(value, Keys.RETURN);
-    };
+    }
 }
