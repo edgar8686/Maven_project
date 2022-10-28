@@ -1,4 +1,4 @@
-package org.example.lesson6;
+package org.example.project;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterAll;
@@ -12,9 +12,10 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import java.util.concurrent.TimeUnit;
 
 public abstract class AbstractTest {
-    private  static WebDriver driver;
+    private static WebDriver driver;
+
     @BeforeAll
-    static void init(){
+    static void init() {
         WebDriverManager.firefoxdriver().setup();
         FirefoxOptions options = new FirefoxOptions();
         options.addArguments("--incognito");
@@ -23,14 +24,16 @@ public abstract class AbstractTest {
         driver = new FirefoxDriver(options);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
+
     @BeforeEach
-    void goTo(){
-        Assertions.assertDoesNotThrow( ()-> driver.navigate().to("https://www.wildberries.ru"),
+    void goTo() {
+        Assertions.assertDoesNotThrow(() -> driver.navigate().to("https://www.wildberries.ru"),
                 "Страница не доступна");
     }
     @AfterAll
-    static void close(){
-        driver.quit();
+    static void close() {
+        if (driver != null)
+            driver.quit();
     }
     public static WebDriver getDriver() {
         return driver;

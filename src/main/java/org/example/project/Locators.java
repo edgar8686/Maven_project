@@ -1,4 +1,4 @@
-package org.example.lesson7;
+package org.example.project;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -14,7 +14,7 @@ public class Locators extends AbstractPage {
     private WebElement cursor;
     @FindBy(xpath = "//button[contains(.,'В корзину')]")
     private WebElement basket;
-    @FindBy(name = "banner_82b41cbe-c824-4c56-899f-1ed1dc411a1c")
+    @FindBy(css = ".footer__inner-wrap > .footer__list-wrap:nth-child(1) .footer__item:nth-child(2) > a")
     private WebElement banner;
     @FindBy(css = ".nav-element__burger-line")
     private WebElement elementBurger;
